@@ -17,7 +17,7 @@ class BinaryTree  {
   struct node *method_to_find_parent(struct node *root,int data);
   void traverseTree(struct node *root);
   bool is_Element_Present(struct node *root,int data);
-
+  void traverse_Using_stack(vector<struct node *root>V);
 };
  
   BinaryTree::BinaryTree() {
@@ -85,6 +85,23 @@ class BinaryTree  {
       return status_is_found; 
     }
 
+    void BinaryTree::traverse_Using_stack(vector<struct node root>V)   {
+      struct node *temp = V(V.size()-1);
+      cout<temp->data;
+      V.pop_back(V.size()-1);
+      if(temp!=NULL)  {  
+        if(temp->right!=NULL)  {
+            V.push_back(temp->right);
+        }
+        if(temp->left!=NULL)  {
+            V.push_back(temp->left);
+        }
+      }
+      traverse_Using_stack(V);
+       return ;
+    }
+
+
 
 int main()  {
   BinaryTree Tree;
@@ -96,8 +113,9 @@ int main()  {
   Tree.insert_node(120);
   Tree.insert_node(101);
   Tree.traverseTree(Tree.root);
-
   cout<<"status is \n"<<Tree.is_Element_Present(Tree.root,1111)<<"\n";
-
+  vector<struct node root>V;
+  V.push_back(Tree.root);
+  BinaryTree.traverse_Using_stack(V);
   return 0;
 } 
