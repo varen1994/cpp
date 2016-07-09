@@ -1,36 +1,60 @@
 #include<iostream>
 #include<map> 
-#include<string.h>
+#include<string>
+#include<cstdlib>
 using namespace std;
 
 class Dictionary  {
   public:
   map<string,long int>List;
+
   void addValueToMap()  {
-     List.insert(std::make_pair("varender",128093));
-     List.insert(std::make_pair("Rohan",128067));
-     List.insert(std::make_pair("Sudhanshu",128083));
-     List["varender"] = List["varender"]+12; 
-     cout<<List["varender"]; 
+    int numberOfValues;
+    cin>>numberOfValues;
+    while(numberOfValues--)  {
+     string name;
+     long int phoneNo;
+     cin>>name;
+     cin>>phoneNo; 
+     List.insert(pair<string,long int>(name,phoneNo));
+    } 
      return ; 
    } 
 
-   void traverseMap()  {
-     cout<<"\n"; 
-     map<string,long int>::iterator i;
-     for(i=List.begin();i!=List.end();++i)  {
-         cout<<"{"<<(*i).first<<":";
-         cout<<(*i).second<<"}";
-         cout<<"\n"; 
+  bool traverseMap(string name)  {
+     map<string,long int>::iterator i; 
+     for(i=List.begin();i!=List.end();i++)  {
+         if((*i).first==name)  { 
+           return true; 
+          }
       }
-     
-       return ;
+      return false;
    }
+   
+   void printValuesCorrToKey()  {
+      string name;
+      while(1)  
+       {
+          cin>>name;
+          if(name.length())  { 
+              if(traverseMap(name)) {
+                cout<<List[name]; 
+               }
+               else  {
+                cout<<"Not Found";
+               }  
+           }
+           else  {
+              break; 
+            }  
+          cout<<"\n"; 
+        } 
+     }
 };
 
 int main()  {
   Dictionary dict;
   dict.addValueToMap();
-  dict.traverseMap(); 
+  dict.printValuesCorrToKey();
   return 0;
 }
