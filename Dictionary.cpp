@@ -26,7 +26,7 @@ int main() {
        temp->phoneNumber = phoneNumber;
     }
     cin>>name;
-    while(name.length())  {
+    while(name.size())  {
        
            bool flag = false;
            for(i=0;i<n;i++)  {
