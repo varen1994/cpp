@@ -17,7 +17,11 @@ class BinaryTree  {
   struct node *method_to_find_parent(struct node *root,int data);
   void traverseTree(struct node *root);
   bool is_Element_Present(struct node *root,int data);
+<<<<<<< HEAD
   int showAllOperationsName();
+=======
+  void traverse_Using_stack(vector<struct node *root>V);
+>>>>>>> f301a23584e73cb597cd16f300ea72409ff9aa9e
 };
  
   BinaryTree::BinaryTree() {
@@ -85,6 +89,7 @@ class BinaryTree  {
       return status_is_found; 
     }
 
+<<<<<<< HEAD
    int BinaryTree::showAllOperationsName()  {
       int operation,i;
       char arr[10][100]  = {"Insert Element","Delete  Element","Replace Element","Traverse Element","Element Present or not","Exit Program"};
@@ -95,10 +100,29 @@ class BinaryTree  {
        cin>>operation;
        return operation;
    }
+=======
+    void BinaryTree::traverse_Using_stack(vector<struct node root>V)   {
+      struct node *temp = V(V.size()-1);
+      cout<temp->data;
+      V.pop_back(V.size()-1);
+      if(temp!=NULL)  {  
+        if(temp->right!=NULL)  {
+            V.push_back(temp->right);
+        }
+        if(temp->left!=NULL)  {
+            V.push_back(temp->left);
+        }
+      }
+      traverse_Using_stack(V);
+       return ;
+    }
+
+>>>>>>> f301a23584e73cb597cd16f300ea72409ff9aa9e
 
 
 int main()  {
   BinaryTree Tree;
+<<<<<<< HEAD
   int operation;
   
   while(1)   {
@@ -146,5 +170,19 @@ int main()  {
     } 
     cout<<"\n";
   }
+=======
+  Tree.insert_node(100);
+  Tree.insert_node(50);
+  Tree.insert_node(25);
+  Tree.insert_node(15);
+  Tree.insert_node(40); 
+  Tree.insert_node(120);
+  Tree.insert_node(101);
+  Tree.traverseTree(Tree.root);
+  cout<<"status is \n"<<Tree.is_Element_Present(Tree.root,1111)<<"\n";
+  vector<struct node root>V;
+  V.push_back(Tree.root);
+  BinaryTree.traverse_Using_stack(V);
+>>>>>>> f301a23584e73cb597cd16f300ea72409ff9aa9e
   return 0;
 } 
