@@ -17,7 +17,7 @@ class BinaryTree  {
   struct node *method_to_find_parent(struct node *root,int data);
   void traverseTree(struct node *root);
   bool is_Element_Present(struct node *root,int data);
-
+  int showAllOperationsName();
 };
  
   BinaryTree::BinaryTree() {
@@ -79,25 +79,72 @@ class BinaryTree  {
            if(root->data==data)  {
               status_is_found = true;
            }
-           is_Element_Present(root->left,data); 
+           is_Element_Pr<F2>esent(root->left,data); 
            is_Element_Present(root->right,data); 
         }
       return status_is_found; 
     }
 
+   int BinaryTree::showAllOperationsName()  {
+      int operation,i;
+      char arr[10][100]  = {"Insert Element","Delete  Element","Replace Element","Traverse Element","Element Present or not","Exit Program"};
+      for(i=0;i<5;i++)  {
+        cout<<i+1<<". ";
+        cout<<arr[i]<<"\n";
+      }
+       cin>>operation;
+       return operation;
+   }
+
 
 int main()  {
   BinaryTree Tree;
-  Tree.insert_node(100);
-  Tree.insert_node(50);
-  Tree.insert_node(25);
-  Tree.insert_node(15);
-  Tree.insert_node(40); 
-  Tree.insert_node(120);
-  Tree.insert_node(101);
-  Tree.traverseTree(Tree.root);
+  int operation;
+  
+  while(1)   {
+    operation = Tree.showAllOperationsName();
+    cin>>operation;
+    switch(operation)  {
+        case 1:
+          int elementToInsert;       
+          cout<<"enter element to insert = ";
+           cin>>elementToInsert;
+           Tree.insert_node(elementToInsert);
+        break;
+ 
+        case 2:
+        
+        break;         
 
-  cout<<"status is \n"<<Tree.is_Element_Present(Tree.root,1111)<<"\n";
+        case 3:
 
+        break;
+
+        case 4:
+          cout<<"traverse Tree  =";
+          Tree.traverseTree(Tree.root);
+        break;
+
+        case 5:
+         int data;
+         cout<<"enter data to find = ";
+         cin>>data;
+          if(Tree.is_Element_Present(Tree.root,data))  {
+            cout<<"ElementFound\n";
+         }
+         else  {
+            cout<<"Element Not Found\n";
+         }
+        break;
+
+        case 6:
+           exit(0);
+         break;
+
+        default:
+        break;
+    } 
+    cout<<"\n";
+  }
   return 0;
 } 
