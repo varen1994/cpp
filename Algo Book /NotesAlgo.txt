@@ -1,0 +1,60 @@
+Desirable Properties of Good algo
+  1. Correct
+  2. Efficient
+  3. Esay to Implement
+
+				Question
+Problem :-
+  Robot Tour Optimization
+Input :-
+  A set of n points in the plane
+Output :-
+ What is the shortest cycle tour that visits each point in the Set?
+
+
+				Answer
+NearestNeighbour Heauristic
+
+[  Wrong Approach ]
+NearestNeighbour(P)
+   Pick and visit an intial point p* from P
+     p = p*
+     i = 0
+   while there are still unvisited points
+     i += 1
+     Select p* to be the closest unvisited point pi-1
+     Visit pi
+  Return p* from pn-1
+
+[Wrong Approach]
+Closest Pair heuristic
+
+[Travelling SalesMan Problem - TSP]
+
+
+
+
+NOTE -
+  ALGORITHMS :- which always produce a correct result 
+  HEURISTICS :- which may usually do a good job but without providing any guarantee.
+
+
+				QUESTION
+ Problem	:- Movie scheduling problem
+ Input		:- A set I of n intervals on the line
+ O/P		:-What is the largest subset of mutuall non-Overlapping intervals which can be selected from I?
+
+
+Date - 1.8.2016
+Home
+Page No- 9
+
+
+
+
+
+
+
+
+
+
