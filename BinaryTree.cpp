@@ -17,7 +17,11 @@ class BinaryTree  {
   struct node *method_to_find_parent(struct node *root,int data);
   void traverseTree(struct node *root);
   bool is_Element_Present(struct node *root,int data);
+<<<<<<< HEAD
+  int showAllOperationsName();
+=======
   void traverse_Using_stack(vector<struct node *root>V);
+>>>>>>> f301a23584e73cb597cd16f300ea72409ff9aa9e
 };
  
   BinaryTree::BinaryTree() {
@@ -79,12 +83,24 @@ class BinaryTree  {
            if(root->data==data)  {
               status_is_found = true;
            }
-           is_Element_Present(root->left,data); 
+           is_Element_Pr<F2>esent(root->left,data); 
            is_Element_Present(root->right,data); 
         }
       return status_is_found; 
     }
 
+<<<<<<< HEAD
+   int BinaryTree::showAllOperationsName()  {
+      int operation,i;
+      char arr[10][100]  = {"Insert Element","Delete  Element","Replace Element","Traverse Element","Element Present or not","Exit Program"};
+      for(i=0;i<5;i++)  {
+        cout<<i+1<<". ";
+        cout<<arr[i]<<"\n";
+      }
+       cin>>operation;
+       return operation;
+   }
+=======
     void BinaryTree::traverse_Using_stack(vector<struct node root>V)   {
       struct node *temp = V(V.size()-1);
       cout<temp->data;
@@ -101,10 +117,60 @@ class BinaryTree  {
        return ;
     }
 
+>>>>>>> f301a23584e73cb597cd16f300ea72409ff9aa9e
 
 
 int main()  {
   BinaryTree Tree;
+<<<<<<< HEAD
+  int operation;
+  
+  while(1)   {
+    operation = Tree.showAllOperationsName();
+    cin>>operation;
+    switch(operation)  {
+        case 1:
+          int elementToInsert;       
+          cout<<"enter element to insert = ";
+           cin>>elementToInsert;
+           Tree.insert_node(elementToInsert);
+        break;
+ 
+        case 2:
+        
+        break;         
+
+        case 3:
+
+        break;
+
+        case 4:
+          cout<<"traverse Tree  =";
+          Tree.traverseTree(Tree.root);
+        break;
+
+        case 5:
+         int data;
+         cout<<"enter data to find = ";
+         cin>>data;
+          if(Tree.is_Element_Present(Tree.root,data))  {
+            cout<<"ElementFound\n";
+         }
+         else  {
+            cout<<"Element Not Found\n";
+         }
+        break;
+
+        case 6:
+           exit(0);
+         break;
+
+        default:
+        break;
+    } 
+    cout<<"\n";
+  }
+=======
   Tree.insert_node(100);
   Tree.insert_node(50);
   Tree.insert_node(25);
@@ -117,5 +183,6 @@ int main()  {
   vector<struct node root>V;
   V.push_back(Tree.root);
   BinaryTree.traverse_Using_stack(V);
+>>>>>>> f301a23584e73cb597cd16f300ea72409ff9aa9e
   return 0;
 } 
