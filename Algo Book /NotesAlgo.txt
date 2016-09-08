@@ -1,7 +1,13 @@
+						Date - 1.8.2016
+						Home
+						Page No- 9
+
+
+
 Desirable Properties of Good algo
   1. Correct
   2. Efficient
-  3. Esay to Implement
+  3. Easy to Implement
 
 				Question
 Problem :-
@@ -42,12 +48,82 @@ NOTE -
 				QUESTION
  Problem	:- Movie scheduling problem
  Input		:- A set I of n intervals on the line
- O/P		:-What is the largest subset of mutuall non-Overlapping intervals which can be selected from I?
+ O/P		:-What is the largest subset of mutually non-Overlapping intervals which can be selected from I?
+
+				Date : 	2.sep.2016
+ 	 			Addval Solutions
+				start - 9 
 
 
-Date - 1.8.2016
-Home
-Page No- 9
+Approach :-
+  Earlier Job First(I)  
+  Accept the earliest starting job j from I which does not overlap any previously accepted job,
+  and repeat until no more such jobs remain.
+
+  Cons of Earlier job first:-
+  Accepting the earlier job might block us from taking other jobs if that first job is long.
+
+  Another approach
+  Maximizing the number of jobs we do in a given period is clearly connected to banging
+  them out as quickly.
+  cons:- Accepting the shortest job might block us from taking two other jobs.While the potential loss here  seems 
+  smaller with the previous heuristic ,it can readily limit us to half the optimal payoff.
+
+NOTE -
+Reasonable looking algorithm can easily be incorrect. Algorithm correctness is a property that must be carefully demonstrated .
+
+Reasoning and correctness
+1. We need tool to distinguish correct algorithm from incorrect ones,The primary one of which is called a proof.
+2. A mathematical proof consists of several parts.
+   i.	There is clear precise statement of what you are trying to prove.
+   ii.	There is a set of assumptions of things  which are taken to be true and hence used as part of the proof.
+   iii.	There is a chain of reasoning which takes you from these assumptions to the statement you are trying to solve.
+   iv.  QED at the bottom to denote that you have finished , representing the Latin phrase for “Thus it is demonstrated”
+
+
+A proof is indeed a demonstration .
+Proofs are useful only when they are honest
+Correct also requires careful exposition and effort to show both  correctness and not incorrectness.    
+
+The three most common forms of algorithmic notation are
+1. English
+2. Pseudocode
+3. A real programming language
+
+Pseudocode is generally useful because it represents a happy medium.
+
+Note :-
+1. Dont Use pseudocode to dress up An ill defined idea so that it looks more formal. 
+2. The heart of any algorithm is an idea . If your idea is not clearly revealed when you express an algorithm ,
+ Then you are using too low level a notation to describe.
+
+
+Problem and Properties
+ Problem specifications have 2 parts.
+ 1. the set of allowed input instances
+ 2. The required properties of the algorithm’s output.
+
+Upto Page 12
+
+
+
+
+
+
+  
+
+
+ 
+
+
+ 
+  	
+
+
+
+
+
+
 
 
 
