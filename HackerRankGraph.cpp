@@ -14,14 +14,19 @@ class Graph  {
   stack<int>S;
   queue<int>Q;
   vector<bool>status;
+  
+  vector<int>relatedValues;
+  
   public:
+  int start;
   Graph(int N);   // constructor 
   void statusFill(int N);
   void makeAllVisitedFalse();
   void insertNode(int start,int end);
   void showAdjencyList();
-  void deapthFirstTraversal(int start);
-  void breadthFirstTraversal(int start);
+  void fillWithMinusOne(int N);
+  void breadthFirstTraversal(int start,int count);
+  void showRelatedNodesDistance();
 };
 
 void Graph::makeAllVisitedFalse()  {
@@ -30,7 +35,14 @@ void Graph::makeAllVisitedFalse()  {
   }
 }
 
-/******* Deapth First Traversal ************/
+
+void Graph::fillWithMinusOne(int N)  {
+  for(int i=0;i<N-1;i++)  {
+    relatedValues.push_back(-1);
+  }
+}
+
+/******* Deapth First Traversal ************
 void Graph::deapthFirstTraversal(int start)  {
   S.push(start);
   vector<int>v = V[start-1];
@@ -47,23 +59,39 @@ void Graph::deapthFirstTraversal(int start)  {
 }
 
 /******* Breadth First Traversal ***********/
-void Graph::breadthFirstTraversal(int start)  {
+void Graph::breadthFirstTraversal(int start,int count)  {
     Q.push(start);
+   cout<<"rec ="<<start<<"\n";
+    if(!status[start-1] && this->start!=start)  {
+       cout<<start<<"   distance ="<<count*6<<"\n";
+    }
     vector<int>v = V[start-1];
-      cout<<Q.front()<<"\t";
-      status[Q.front()] = true;
-      Q.pop();
-     if(!Q.empty())  {
-           for(int io=1;io<v.size();io++)  {
-            if(status[v[io]]==false)  {
-               status[v[io]] = true; 
-               Q.push(v[io]);          
-            } 
-         }
-        deapthFirstTraversal(Q.back());
-     }
+      if(Q.size()  && status[start-1]==false)  {
+        
+         for(int io=1;io<v.size();io++)  {
+               if(status[v[io]-1]==false)  {
+                   status[v[io]-1] = true;
+                   cout<<v[io]<<"   distance ="<<count*6<<"\n";
+                   Q.push(v[io]);          
+               }  
+          }
+          Q.pop();
+          status[start-1] = true;  
+          breadthFirstTraversal(Q.front(),count+1); 
+       }
+       else {
+             Q.pop();
+       }
 }
+
   
+void Graph::showRelatedNodesDistance()  {
+  for(int i=0;i<relatedValues.size();i++)  {
+     cout<<relatedValues[i];
+  }
+}
+
+
 void Graph::insertNode(int start,int end)  {
    V[start-1].push_back(end);
 }
@@ -85,6 +113,7 @@ Graph::Graph(int N)  {
      V.push_back(v);
   } 
   statusFill(N);
+  fillWithMinusOne(N);
 }
 
 
@@ -95,16 +124,16 @@ void Graph::statusFill(int N)  {
 }
 
 int main()  {
-  Graph g(4);
+  Graph g(5);
   g.insertNode(1,2);
   g.insertNode(1,3);
-  g.insertNode(2,3);
-  g.insertNode(3,4);
-  g.insertNode(3,1);
-  g.insertNode(4,4);
+  g.insertNode(2,4);
+  g.insertNode(4,5);
   g.showAdjencyList();
   cout<<"\n****** Deapth First Traversal******* \n";
-  g.breadthFirstTraversal(3);
+  g.start = 1;
+  g.breadthFirstTraversal(1,1);
+  g.showRelatedNodesDistance();
   return 0;
 }
 
